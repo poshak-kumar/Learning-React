@@ -9,7 +9,6 @@ function App() {
   const [todoItems, setTodoItems] = useState([]);
 
   const handleNewItem = (itemName, itemDueDate) => {
-    console.log(`New item added- ${itemName} and Due Date - ${itemDueDate}`);
     const newTodoItems = [
       ...todoItems,
       { name: itemName, dueDate: itemDueDate },
@@ -21,7 +20,6 @@ function App() {
     // Filter is making one new array, not change the existing array
     const newTodoItems = todoItems.filter((item) => item.name !== todoItemName);
     setTodoItems(newTodoItems);
-    console.log(`Item deleted : ${todoItemName}`);
   };
 
   return (
