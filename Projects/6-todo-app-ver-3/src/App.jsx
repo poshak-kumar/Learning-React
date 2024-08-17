@@ -10,7 +10,7 @@ function App() {
 
   const handleNewItem = (itemName, itemDueDate) => {
     const newTodoItems = [
-      ...todoItems,
+      ...todoItems, // Spread Operator
       { name: itemName, dueDate: itemDueDate },
     ];
     setTodoItems(newTodoItems);
