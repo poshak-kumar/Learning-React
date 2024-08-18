@@ -9,11 +9,15 @@ function App() {
   const [todoItems, setTodoItems] = useState([]);
 
   const handleNewItem = (itemName, itemDueDate) => {
-    const newTodoItems = [
-      ...todoItems, // Spread Operator
-      { name: itemName, dueDate: itemDueDate },
-    ];
-    setTodoItems(newTodoItems);
+    // If you set the value on the basis of old value using Spread Operator, then don't pass the value directly, pass the Method
+    // setTodoItems(newTodoItems);
+    setTodoItems((currentValue) => {
+      const newTodoItems = [
+        ...currentValue, // Spread Operator
+        { name: itemName, dueDate: itemDueDate },
+      ];
+      return newTodoItems;
+    });
   };
 
   const handleDeleteItems = (todoItemName) => {
