@@ -1,7 +1,9 @@
-import { useRef } from "react";
+import { useContext, useRef } from "react";
 import { IoMdAddCircleOutline } from "react-icons/io";
+import { TodoItemsContext } from "../store/todo-item-store";
 
-function AddTodo({ onNewItem }) {
+function AddTodo() {
+  const { addNewItem } = useContext(TodoItemsContext);
   /** Appling useRef on this Todo App */
   const todoNameElement = useRef();
   const dueDateElement = useRef();
@@ -11,7 +13,7 @@ function AddTodo({ onNewItem }) {
     const dueDate = dueDateElement.current.value;
     todoNameElement.current.value = "";
     dueDateElement.current.value = "";
-    onNewItem(todoName, dueDate);
+    addNewItem(todoName, dueDate);
   };
 
   return (
